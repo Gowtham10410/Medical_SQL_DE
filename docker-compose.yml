@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    build: .
+    container_name: medical_db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: project_medical_data_history
+      MYSQL_USER: dm_team4
+      MYSQL_PASSWORD: DM_Team_Password_2024
+    volumes:
+      - medical_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  medical_data:
